@@ -7,6 +7,11 @@ services:
       - 'zitadel'
     env_file:
       - .env
+    environment:
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_USER=postgres
+      - POSTGRES_HOST=postgres
+      - POSTGRES_DB=zitadel
     volumes:
       - ./dataset:/docker-entrypoint-initdb.d
     ports:
@@ -15,3 +20,4 @@ services:
 networks:
   zitadel:
     external: true
+
