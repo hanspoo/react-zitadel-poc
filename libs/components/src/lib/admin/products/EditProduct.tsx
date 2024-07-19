@@ -44,7 +44,7 @@ const EditProduct = () => {
 
   return (
     <div className="max-w-lg mx-auto my-10 bg-white p-8 rounded-lg sm:shadow sm:border">
-      <h1 className="text-2xl font-extralight">Edit Product</h1>
+      <h1 className="text-2xl mb-2 font-extralight">Edit Product</h1>
       <form onSubmit={updateProduct}>
         <div className="mb-6">
           <label htmlFor="email" className="label">
@@ -60,7 +60,7 @@ const EditProduct = () => {
             required
           />
         </div>
-        <div className="mb-6">
+        <div className="mb-8">
           <label htmlFor="price" className="label">
             Price
           </label>

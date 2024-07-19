@@ -34,13 +34,10 @@ const AddProduct = () => {
 
   return (
     <div className="max-w-lg mx-auto my-10 bg-white p-8 rounded-lg sm:shadow sm:border">
-      <h1 className="text-2xl font-extralight">Add Product</h1>
+      <h1 className="text-2xl mb-2 font-extralight">Add Product</h1>
       <form onSubmit={saveProduct}>
         <div>
-          <label
-            htmlFor="email"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+          <label htmlFor="email" className="label">
             Name
           </label>
           <input
@@ -53,11 +50,8 @@ const AddProduct = () => {
             required
           />
         </div>
-        <div className="mb-6">
-          <label
-            htmlFor="price"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+        <div className="mb-8">
+          <label htmlFor="price" className="label">
             Price
           </label>
           <input
