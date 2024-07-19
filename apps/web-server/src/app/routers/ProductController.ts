@@ -1,5 +1,4 @@
-import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient();
+import { prismaAccess as prisma } from '@freedom/dao-prisma';
 
 export const getProducts = async (req, res) => {
   try {
@@ -45,8 +44,6 @@ export const createProduct = async (req, res) => {
 };
 
 export const updateProduct = async (req, res) => {
-  console.log('Actualizando producto');
-  console.log(req.org);
   const { name, price } = req.body;
   try {
     const product = await prisma.prismaProduct.update({

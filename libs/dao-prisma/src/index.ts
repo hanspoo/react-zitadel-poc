@@ -1,3 +1,5 @@
+export { prismaAccess } from './lib/PrismaAccess';
+
 export { ServicioNuevasArticles } from './lib/ServicioNuevasArticles';
 
 export { BootupService } from './lib/BootupService';
