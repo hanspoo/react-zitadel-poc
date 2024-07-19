@@ -33,7 +33,7 @@ const AddProduct = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="max-w-lg mx-auto my-10 bg-white p-8 rounded-lg sm:shadow sm:border">
+    <div className="max-w-lg mx-auto my-10 p-2 rounded-md sm:p-8 sm:shadow sm:border">
       <h1 className="text-2xl mb-2 font-extralight">Add Product</h1>
       <form onSubmit={saveProduct}>
         <div>
@@ -45,8 +45,7 @@ const AddProduct = () => {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="input input-bordered w-full max-w-xs"
-            placeholder="Product name"
+            className="input input-bordered w-full"
             required
           />
         </div>
@@ -59,8 +58,7 @@ const AddProduct = () => {
             id="price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            className="input input-bordered w-full max-w-xs"
-            placeholder="Product price"
+            className="input input-bordered w-full"
             required
           />
         </div>

@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import productsRouter from './routers/ProductRoute';
+import productsRouter from './routers/productsRouter';
 
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';

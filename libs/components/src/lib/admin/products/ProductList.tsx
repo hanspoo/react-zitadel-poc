@@ -53,7 +53,7 @@ const ProductList = () => {
           </button>
         </Link>
         <div className="mt-5 overflow-x-auto relative shadow sm:rounded-lg border">
-          <table className="table table-sm bg-primary">
+          <table className="table table-sm">
             <thead>
               <tr>
                 <th>#</th>
