@@ -67,8 +67,8 @@ const ProductList = () => {
                   </tr>
                 ))
               ) : (
-                <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                  <td colSpan={4} className="py-4 px-6 text-center">
+                <tr>
+                  <td colSpan={4} className="text-center font-light">
                     Empty list
                   </td>
                 </tr>
