@@ -1,8 +1,6 @@
 import { useContext } from 'react';
 import { AuthComponent } from './auth-component';
 import { OrgContext } from '../contexts/OrgContext';
-import { BuildingLibraryIcon } from '@heroicons/react/24/solid';
-import { Link } from 'react-router-dom';
 
 export function Navbar({ loginSection = true }: { loginSection?: boolean }) {
   const { org } = useContext(OrgContext);

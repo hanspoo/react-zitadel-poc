@@ -3,6 +3,7 @@
 import React from 'react';
 import { useAuth } from 'react-oidc-context';
 import { UserIcon } from '@heroicons/react/24/solid';
+import { Link } from 'react-router-dom';
 
 export function AuthComponent() {
   const auth = useAuth();
@@ -31,26 +32,31 @@ export function AuthComponent() {
 
   if (auth.isAuthenticated) {
     return (
-      <div className="flex flex-col items-center ">
-        <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar w-8 h-8"
-          >
-            <UserIcon />
+      <div className="flex items-center">
+        <Link className="btn btn-ghost mr-3" to="/admin/products">
+          Products
+        </Link>
+        <div className="flex flex-col items-center ">
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar w-8 h-8"
+            >
+              <UserIcon />
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            >
+              <li>Logged as {auth.user?.profile?.sub}</li>
+              <li>
+                <button className="btn" onClick={() => void auth.removeUser()}>
+                  Log out
+                </button>
+              </li>
+            </ul>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-          >
-            <li>Logged as {auth.user?.profile?.sub}</li>
-            <li>
-              <button className="btn" onClick={() => void auth.removeUser()}>
-                Log out
-              </button>
-            </li>
-          </ul>
         </div>
       </div>
     );

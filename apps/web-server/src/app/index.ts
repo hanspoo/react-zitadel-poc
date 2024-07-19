@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
+import productsRouter from './routers/ProductRoute';
 
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
@@ -118,5 +119,7 @@ app.get('/api/admin/articles', customMiddleware, async (req, res) => {
 
   res.status(200).send(articles);
 });
+
+app.use('/api/admin/products', customMiddleware, productsRouter);
 
 export { app };

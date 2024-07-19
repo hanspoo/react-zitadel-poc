@@ -7,12 +7,13 @@ import { Authenticated } from './Authenticated';
 import { Unauthenticated } from './Unauthenticated';
 import { FormArticle } from '../form-article/form-article';
 import { Footer } from '../public/footer';
+import { ProductsRoutes } from '../admin/ProductsRoutes';
 
 export function App() {
   const auth = useAuth();
 
   return (
-    <div className="flex flex-col h-screen w-full max-w-[1280px] m-auto justify-between">
+    <div className="flex flex-col min-h-screen w-full max-w-[1280px] m-auto justify-between">
       <div>
         <Navbar loginSection={auth.isAuthenticated} />
         <div className="m-4 min-h-[640px] ">
@@ -24,6 +25,7 @@ export function App() {
               }
             ></Route>
             <Route path="/article" element={<FormArticle />}></Route>
+            <Route path="/admin/products/*" element={<ProductsRoutes />} />
             <Route path="/admin" element={<Authenticated />}></Route>
           </Routes>
         </div>
