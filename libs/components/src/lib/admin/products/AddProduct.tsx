@@ -70,14 +70,14 @@ const AddProduct = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary mr-1">
-          Save
-        </button>
         <Link to="/admin/products">
-          <button type="button" className="btn">
+          <button type="button" className="btn mr-1">
             Cancel
           </button>
         </Link>
+        <button type="submit" className="btn btn-primary">
+          Save
+        </button>
       </form>
     </div>
   );

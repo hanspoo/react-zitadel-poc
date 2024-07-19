@@ -47,10 +47,7 @@ const EditProduct = () => {
       <h1 className="text-2xl font-extralight">Edit Product</h1>
       <form onSubmit={updateProduct}>
         <div className="mb-6">
-          <label
-            htmlFor="email"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+          <label htmlFor="email" className="label">
             Name
           </label>
           <input
@@ -58,16 +55,13 @@ const EditProduct = () => {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="input"
             placeholder="Product name"
             required
           />
         </div>
         <div className="mb-6">
-          <label
-            htmlFor="price"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+          <label htmlFor="price" className="label">
             Price
           </label>
           <input
@@ -75,25 +69,19 @@ const EditProduct = () => {
             id="price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="input"
             placeholder="Product price"
             required
           />
         </div>
-        <button
-          type="submit"
-          className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-        >
-          Update
-        </button>
-        <Link to="/">
-          <button
-            type="button"
-            className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-          >
+        <Link to="/admin/products">
+          <button type="button" className="btn mr-1">
             Cancel
           </button>
         </Link>
+        <button type="submit" className="btn btn-primary">
+          Update
+        </button>
       </form>
     </div>
   );
