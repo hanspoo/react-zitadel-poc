@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import useSWR, { mutate } from 'swr';
 import { useAxios } from '../../hooks/useAxios';
+import { useState } from 'react';
 
 const ProductList = () => {
+  const [product, setProduct] = useState();
   const axios = useAxios();
   const fetcher = async () => {
     const response = await axios.get('/api/admin/products');
@@ -27,10 +29,27 @@ const ProductList = () => {
 
   return (
     <div className="flex flex-col my-10">
+      <dialog id="my_modal_1" className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Borrar producto</h3>
+          <p className="py-4">The product will be eliminated permanently</p>
+          <form method="dialog" className="modal-backdrop">
+            <div className="modal-action flex">
+              <button className="btn">Close</button>
+              <button
+                onClick={() => deleteProduct(product?.id)}
+                className="btn btn-primary"
+              >
+                Delete
+              </button>
+            </div>
+          </form>
+        </div>
+      </dialog>
       <div className="w-full">
         <Link to="/admin/products/add" className="ml-4 sm:ml-0">
           <button type="button" className="btn btn-sm">
-            Add New Product
+            New Product
           </button>
         </Link>
         <div className="mt-5 overflow-x-auto relative shadow sm:rounded-lg border">
@@ -57,9 +76,12 @@ const ProductList = () => {
                         </button>
                       </Link>
                       <button
+                        onClick={() => {
+                          setProduct(product);
+                          document.getElementById('my_modal_1').showModal();
+                        }}
                         type="button"
                         className="btn btn-xs"
-                        onClick={() => deleteProduct(product.id)}
                       >
                         Delete
                       </button>
