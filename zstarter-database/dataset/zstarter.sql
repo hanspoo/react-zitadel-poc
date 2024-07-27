@@ -21,6 +21,39 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
+-- Name: PrismaProduct; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PrismaProduct" (
+    id integer NOT NULL,
+    name text NOT NULL,
+    price integer NOT NULL,
+    "createdAt" timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    "organizationId" text NOT NULL
+);
+
+
+--
+-- Name: PrismaProduct_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public."PrismaProduct_id_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: PrismaProduct_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public."PrismaProduct_id_seq" OWNED BY public."PrismaProduct".id;
+
+
+--
 -- Name: article; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -95,6 +128,21 @@ CREATE TABLE public."user" (
 
 
 --
+-- Name: PrismaProduct id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PrismaProduct" ALTER COLUMN id SET DEFAULT nextval('public."PrismaProduct_id_seq"'::regclass);
+
+
+--
+-- Data for Name: PrismaProduct; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public."PrismaProduct" (id, name, price, "createdAt", "organizationId") FROM stdin;
+\.
+
+
+--
 -- Data for Name: article; Type: TABLE DATA; Schema: public; Owner: -
 --
 
@@ -141,6 +189,21 @@ COPY public."user" (id, name, email, coments, phone, active, "organizationId", "
 
 
 --
+-- Name: PrismaProduct_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public."PrismaProduct_id_seq"', 1, false);
+
+
+--
+-- Name: PrismaProduct PrismaProduct_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PrismaProduct"
+    ADD CONSTRAINT "PrismaProduct_pkey" PRIMARY KEY (id);
+
+
+--
 -- Name: article article_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -184,6 +247,14 @@ CREATE UNIQUE INDEX organization_name_key ON public.organization USING btree (na
 --
 
 CREATE UNIQUE INDEX "user_email_organizationId_key" ON public."user" USING btree (email, "organizationId");
+
+
+--
+-- Name: PrismaProduct PrismaProduct_organizationId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PrismaProduct"
+    ADD CONSTRAINT "PrismaProduct_organizationId_fkey" FOREIGN KEY ("organizationId") REFERENCES public.organization(id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
 --
