@@ -10,6 +10,7 @@ export function MetaApp() {
     return {
       authority: import.meta.env.VITE_ZITADEL_SERVER || 'nada',
       client_id: org?.clientId,
+      scope: 'openid email profile',
       redirect_uri: `http://${org?.host}`,
       post_logout_redirect_uri: `http://${org?.host}`,
     };

@@ -1,14 +1,14 @@
-import { useAuth } from 'react-oidc-context';
-import { PleaseLogin } from '../PleaseLogin';
 import { Dashboard } from '../admin/Dashboard';
+import { useUserinfo } from './useUserinfo';
 export function Authenticated() {
-  const auth = useAuth();
+  const { loading, error, userinfo } = useUserinfo();
 
-  if (!auth.isAuthenticated) return <PleaseLogin />;
+  if (loading) return null;
+  if (error) return null;
 
   return (
     <div>
-      <div className="my-8">Welcome {auth.user?.profile?.sub}</div>
+      <div className="my-8">Welcome {userinfo?.name}</div>
       <Dashboard />
     </div>
   );

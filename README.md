@@ -28,13 +28,7 @@ https://github.com/nvm-sh/nvm
 npm i -g nx
 ```
 
-3.- Create network to connect zitadel database and server.
-
-```
-docker network create zitadel
-```
-
-4.- hosts file
+3.- hosts file
 
 In a multi tenancy environment host names are important, moreover when you are not logged in.
 
@@ -42,7 +36,7 @@ In order for the two organizations in this sample, dinobank and dogsinc to work,
 
 `127.0.0.1 dinobank.localhost dogsinc.localhost`
 
-5.- Environment variables file
+4.- Environment variables file
 
 Rename .env.sample to .env
 
@@ -56,25 +50,16 @@ cd zstarter
 npm install
 ```
 
-2.- Start app database with organizations preloaded.
+2.- Start 3 required containers:
+
+- zitadel database and server
+- zstarter database
+
+Open a terminal and do:
 
 ```
-cd zstarter-database
-docker compose up -d
-```
-
-3.- Start zitadel database with orgnizations preloaded
-
-```
-cd zitadel-database
-docker compose up -d
-```
-
-4.- Start zitadel server
-
-```
-cd zitadel-server
-docker compose up -d
+cd docker-dev
+docker compose up
 ```
 
 5.- Start back end express
@@ -103,14 +88,26 @@ http://localhost:4200/
 
 Besides the name each one has a different daisyui theme.
 
-For simplicity we are using the zitadel admin user, that can log in any organization.
+## Users
 
-`zitadel-admin@zitadel.localhost`
-with password
-`Password2!`
+```
+organization:dogsinc
+url: http://dogsinc.localhost:4200
+user: pitbull@dogsinc.com
+pass: Password2!
+```
 
-Go to the zitadel admin panel at:
+```
+organization:admin org
+url: http://localhost:4200
+user: zitadel-admin@zitadel.localhost
+password: Password2!
+```
+
+## Zitadel admin
+
+Zitadel admin panel at:
 
 http://localhost:8080
 
-And create users in the other organizations, and you will see that they as expected can only log in where they are registered:
+And create users in the other organizations, and you will see that they as expected can only log in where they are registered.

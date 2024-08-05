@@ -30,7 +30,7 @@ export function Dashboard() {
         </thead>
         <tbody>
           {data.map((a, i) => (
-            <tr>
+            <tr key={i}>
               <th>{i}</th>
               <td>{a.name}</td>
               <td>{a.coments}</td>
