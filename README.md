@@ -90,19 +90,17 @@ Besides the name each one has a different daisyui theme.
 
 ## Users
 
-```
-organization:dogsinc
-url: http://dogsinc.localhost:4200
-user: pitbull@dogsinc.com
-pass: Password2!
-```
+- organization: dogsinc
+- url: [http://dogsinc.localhost:4200](http://dogsinc.localhost:4200)
+- user: pitbull@dogsinc.com
+- pass: Password2!
 
-```
-organization:admin org
-url: http://localhost:4200
-user: zitadel-admin@zitadel.localhost
-password: Password2!
-```
+---
+
+- organization:main org
+- url: [http://localhost:4200](http://localhost:4200)
+- user: zitadel-admin@zitadel.localhost
+- password: Password2!
 
 ## Zitadel admin
 
